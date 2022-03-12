@@ -5,6 +5,18 @@ namespace Prework_CodeChallenges
     class Program
     {
 
+        bool IsLeapYear(int year)
+        {
+            if (year % 4 == 0 && year % 100 == 0 && year % 400 == 0)
+                return true;
+            else if (year % 4 == 0 && year % 100 == 0)
+                return false;
+            else if (year % 4 == 0)
+                return true;
+            else
+                return false;
+        }
+      
         int ArrayAndMax()
         {
             int[] arr = new int[5];
@@ -34,12 +46,18 @@ namespace Prework_CodeChallenges
             }
 
             return numRepeating * num;
+
         }
 
         static void Main(string[] args)
         {
+
+            Console.WriteLine(new Program().IsLeapYear(2000));
+            Console.WriteLine(new Program().IsLeapYear(1997));
+
             int result = new Program().ArrayAndMax();
             Console.WriteLine("Scored number: " + result);
+
 
 
         }
