@@ -5,6 +5,21 @@ namespace Prework_CodeChallenges
     class Program
     {
 
+        int[] SumOfRows(int[,] myArray)
+        {
+            int[] result = new int[myArray.GetLength(0)];
+
+            for (int i = 0; i < myArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < myArray.GetLength(1); j++)
+                {
+                    result[i] += myArray[i, j];
+                }
+            }
+
+            return result;
+        }
+
         string PerfectSequence(int[] arr)
         {
             int sum = 0;
@@ -72,20 +87,28 @@ namespace Prework_CodeChallenges
 
         static void Main(string[] args)
         {
+            Program program = new Program();
 
-            Console.WriteLine(new Program().IsLeapYear(2000));
-            Console.WriteLine(new Program().IsLeapYear(1997));
+            Console.WriteLine(program.IsLeapYear(2000));
+            Console.WriteLine(program.IsLeapYear(1997));
 
-            int result = new Program().ArrayAndMax();
+            int result = program.ArrayAndMax();
             Console.WriteLine("Scored number: " + result);
 
             int[] a = { 1, 3, 2 };
             int[] a1 = { 1, -3, 2 };
             int[] b = { 4,5,6 };
-            Console.WriteLine(new Program().PerfectSequence(a));
-            Console.WriteLine(new Program().PerfectSequence(a1));
-            Console.WriteLine(new Program().PerfectSequence(b));
+            Console.WriteLine(program.PerfectSequence(a));
+            Console.WriteLine(program.PerfectSequence(a1));
+            Console.WriteLine(program.PerfectSequence(b));
 
+            int[,] myArray = new int[3, 5] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 } };
+            int[] res = program.SumOfRows(myArray);
+            foreach (var e in res)
+            {
+                Console.WriteLine(e);
+            }
+            
         }
     }
 }
